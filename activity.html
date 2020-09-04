@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Activity-3</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("#anim").click(function(){
+    $("#img1").animate({left: '920px'});										//Animate method
+	$("#img3").hide();															//Hide Method
+	$("#anim").css({"color":"dodgerblue","font-size":"120%"});					//Multiple css method
+	$("#anim1").css({"color":"dodgerblue","font-size":"120%"});
+  });
+  $("#anim1").click(function(){	
+	$("#anim").hide();						
+	$("#img1").fadeOut();														//fadeOut method
+    $("#img2").fadeOut();
+	$("#img3").show();															//show method
+	$("#anim").fadeIn(3000);													//fadeIn method
+	$("#anim1").css({"color":"dodgerblue","font-size":"120%"});
+  });
+  
+	$("#b").click(function(){
+	$("h3").append(" Appended the element");									//Append html content
+	});
+	$("#b0").click(function(){
+	$("h3").remove();															//Remove html content
+	});
+//Incorporating Dimension methods using jQuery									
+  $("#b1").click(function(){
+	$("#b1").hide();
+	$("#b2").hide();
+	var txt = "";
+    txt += "Width of div: " + $("#div1").width() + "unit"+"</br>";				//Dimension Method- width
+    txt += "Height of div: " + $("#div1").height()+"unit";						//Dimension Method- height
+    $("#div1").html(txt);
+	});
+																				//Traversing Methods
+	$("#b2").click(function(){
+		$("#b1").hide();
+		$("#b2").hide();
+		$("li").each(function(){												//each method one of the the traversing method
+			alert($(this).text())
+		});
+		$("ul").children();						
+		$("h1").add("ul").add("li").add("p").css({"color": "#006666","font-size":"110%"});		//add method one of the traversing method
+	});
+});
+
+</script>
+<style>
+#div{
+width:97%;
+height:40%;
+position:absolute;
+padding: 10px;
+  margin: 3px;
+  border: 1px solid blue;
+  background-color: lightblue;
+}
+#div1{
+width:97%;
+height:40%;
+position:absolute;
+top:40%;
+padding: 10px;
+  margin: 3px;
+  border: 1px solid blue;
+  background-color: lightblue;
+}
+#img1{
+top:148px;}
+#img2{
+top:148px;
+}
+#img3{
+top:148px;}
+</style>
+</head>
+<body>
+<div style="background-color:white;"id="div">
+<p id="anim">Click on me to reach the car to parking lot 900px away!!</p>
+<img src="images/travel.png" id="img1" width="110" height="110" style="position:absolute;"/>
+<img src="images/parking.png" id="img2" width="110" height="110" style="position:absolute; left:900px;"/>
+<p id="anim1">Click on me to see the car parked in parking lot!</p>
+<img src="images/parked.png" id="img3" width="110" height="110" style="position:absolute; left:900px; display:none;"/> 
+<h3>This is h3 element</h3>
+<button id="b">Add Html elements and contents</button>
+<button id="b0">Remove Html elements and contents</button>
+</div>
+<div id="div1">
+	<button id="b1">Display dimensions of div with id div1</button>
+	<h1>Traversing Methods</h1>
+	<ul>
+		<li>Car to parking use animate,hide,css method using jQuery</li>
+		<li>Car in parking use hide,fadeout,show,fadeIn and css methods using jQuery</li>
+		<li>Appending and Removing of h3 element text in h3 element using jQuery</li>
+		<li>Div1 consists of jQuery dimension methods- width and height</li>
+		<li>Now in this ul we use traversing methods each and add for jQuery</li>
+	</ul>
+	<button id="b2">Use traversing methods</button>
+</div>
+
+</body>
+</html>

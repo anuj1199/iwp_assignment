@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Activity-1-2</title>
+<link rel="icon" href="images/19.png" />
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+<script>
+	function validateform(){
+	var genders = document.getElementsByName("gender");
+                if (genders[0].checked == true) {
+                    alert("Your gender is male");
+                }
+				else if  (genders[1].checked == true) {
+                    alert("Your gender is female");
+                }
+					else{
+                    var msg = '<span style="color:red;">You must select your gender!</span><br /><br />';
+                    document.getElementById('msg').innerHTML = msg;
+                    return false;
+                }					
+	return true; 
+	}
+	
+	function selectop(){
+		select = document.getElementById('select');
+		if (select.value) {
+			alert("You selected an select input");
+			return true;
+		}
+		else{
+			alert("Please select an input");
+			return true;
+		}	
+	}
+	
+	
+</script>
+</head>
+<body>
+
+<h1 class='text'>Registration Form</h1>
+
+
+<div class='text2'>
+<pre style='opacity:1;'>                                   <img src='images/19.png'style='opacity:1;' width='65px' height='65px'></pre> 
+<form method='post'  align='center' onsubmit="if(document.getElementById('tnc').checked) { return true; } else { alert('Please agree with Terms and Conditions'); return false; }">
+<table>
+	<tr>
+		<td><input id='fname' type='text' name='username' placeholder='Username' required><br></td>
+	</tr>
+	<tr>
+		<td><input id='pass' type='password' name='password' placeholder='Password' required><br></td>
+	</tr>
+	<tr>
+		<td><input id='email' type='email' name='email' placeholder='E-mail' required><br></td>
+	</tr>
+	<tr>
+		<td><select name="countryCode" class="select" id="select" onchange="selectop()">
+		<option data-countryCode="IN" value="91" Selected>Ind(+91)</option>
+		<option data-countryCode="US" value="1">USA (+1)</option>
+		<optgroup label="Other countries">
+		<option data-countryCode="US" value="1">UK (+44)</option>
+		<option data-countryCode="AU" value="61">Australia (+61)</option>
+		<option data-countryCode="FR" value="33">France (+33)</option>
+		<option data-countryCode="DE" value="49">Germany (+49)</option>
+	</optgroup>
+</select></td>
+		<td><input id='contact' type='tel' name='contact'  placeholder='Phone Number' pattern="[0-9]{10}" required><br></td>
+	</tr>
+	<tr>
+		<td><input type="radio" id="male" name="gender" value="male" onclick="reset_msg();">
+		<label for="male" id="male1">Male</label><br></td>
+		<td><input type="radio" id="female" name="gender" value="female" onclick="reset_msg();">
+		<label for="male" id="female1">Female</label><br></td>
+	</tr>
+	<tr>
+		<td><input type="checkbox" id="tnc" name="tnc" value="tnc" >
+		<label for="tnc" id="tnc1"> Flexible with terms and Conditions</label><br></td>
+	</tr>
+	<tr>
+	</tr>
+		<td><div id="msg"></div></td>
+	<tr>
+		<td><input type='submit' value='Submit' onclick="return validateform()"></td>
+		<td><input type='reset' value='Reset'></td>
+	</tr>
+	
+</table>
+</form>
+
+
+  
+</div>
+</body>
+</html>
